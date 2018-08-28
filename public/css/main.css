@@ -1,0 +1,36 @@
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CRaleway:100,300,600,700,800");
+#sidebar {
+  position: fixed;
+  height: 100%;
+  background-color: #39CCCC;
+  top: 3.5rem;
+  width: 300px; }
+  #sidebar aside {
+    position: relative;
+    top: 100px;
+    display: flex;
+    justify-content: center; }
+    #sidebar aside form button {
+      margin-left: 1em; }
+
+#header .centered {
+  position: absolute;
+  left: 50%;
+  bottom: 0; }
+
+#header .navbar-brand {
+  background-color: transparent;
+  border-radius: 50%; }
+
+#footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center; }
+
+#map {
+  width: 100%;
+  height: 100vh; }
+
+#content {
+  margin-left: 300px; }
