@@ -1,10 +1,11 @@
-<aside>
+<aside ng-controller="SidebarCtrl">
     <form class="form-inline">
         <div class="form-row align-items-center">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
+                <i class="icon ion-md-search"></i>
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary"><i class="icon ion-md-search"></i></button>
+        </div>        
+        <button ng-click="getLocation()" class="btn btn-outline-dark"><i class="icon ion-md-compass"></i></button>
     </form>
 </aside>
