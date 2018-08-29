@@ -21,10 +21,6 @@ angular.module('MyApp')
         zoom: 14
       });
       
-      
-      
-      
-      
     });
     
   });

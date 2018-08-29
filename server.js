@@ -21,6 +21,7 @@ var User = require('./models/User');
 // Controllers
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
+var restaurantsController = require('./controllers/restaurant');
 
 var app = express();
 
@@ -69,6 +70,9 @@ app.post('/login', userController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+
+// Restaurants
+app.get('/restaurants', restaurantsController.getRestaurant);
 
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
