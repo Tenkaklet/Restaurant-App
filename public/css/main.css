@@ -26,12 +26,24 @@
   left: 50%;
   bottom: 0; }
 
-#header .navbar-brand {
-  background-color: transparent;
-  border-radius: 50%;
-  width: 45px; }
-  #header .navbar-brand:focus {
-    outline: none; }
+#header .nav-button {
+  position: absolute;
+  top: 8px;
+  right: 35px;
+  cursor: pointer; }
+  #header .nav-button i {
+    font-size: 40px; }
+
+#header aside {
+  position: absolute;
+  right: 0;
+  width: 0;
+  background-color: blue;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.3s ease-in-out; }
+  #header aside.open {
+    width: 300px; }
 
 #footer {
   position: absolute;

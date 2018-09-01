@@ -4,12 +4,25 @@
         left: 50%;
         bottom: 0;
     }
-    .navbar-brand {
-        background-color: transparent;
-        border-radius: 50%;
-        width: 45px;
-        &:focus {
-            outline: none;
+    .nav-button {
+        position: absolute;
+        top: 8px;
+        right: 35px;
+        cursor: pointer;
+        i {
+            font-size: 40px;
+        }
+    }
+    aside {
+        position: absolute;
+        right: 0;
+        width: 0;
+        background-color: blue;
+        height: 100%;
+        z-index: 2;
+        transition: all 0.3s ease-in-out;
+        &.open {
+            width: 300px;
         }
     }
 }

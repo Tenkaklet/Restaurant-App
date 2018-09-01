@@ -1,5 +1,17 @@
-<div class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="logo">
-    <h1>Eat Me Up</h1>
+<div ng-controller="HeaderCtrl">
+  <div class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo">
+      <h1>Eat Me Up</h1>
+    </div>
+    <div class="nav-button" ng-click="openMenu()">
+      <i class="icon ion-md-menu"></i>
+    </div>
   </div>
+  <aside id="menu">
+    <nav class="navigation">
+      <ul class="links">
+        
+      </ul>
+    </nav>
+  </aside>
 </div>
