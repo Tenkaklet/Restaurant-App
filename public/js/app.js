@@ -21,6 +21,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
         controller: 'SignupCtrl',
         resolve: { skipIfAuthenticated: skipIfAuthenticated }
       })
+      .when('/signup', {
+        templateUrl: 'partials/signup.html',
+        controller: 'SignupCtrl',
+        resolve: { skipIfAuthenticated: skipIfAuthenticated }
+      })
       .when('/account', {
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl',
@@ -42,6 +47,11 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
 
     $authProvider.loginUrl = '/login';
     $authProvider.signupUrl = '/signup';
+    $authProvider.facebook({
+      url: '/auth/facebook',
+      clientId: '1090309767787653',
+      redirectUri: 'https://0964b911.ngrok.io/auth/facebook/callback'
+    });
 
     function skipIfAuthenticated($location, $auth) {
       if ($auth.isAuthenticated()) {

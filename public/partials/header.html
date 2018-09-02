@@ -3,15 +3,69 @@
     <div class="logo">
       <h1>Eat Me Up</h1>
     </div>
-    <div class="nav-button" ng-click="openMenu()">
-      <i class="icon ion-md-menu"></i>
+    <div class="nav-button dropdown">
+      <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="icon ion-md-menu"></i></a>
+      <div class="dropdown-menu">
+        <div class="authed" ng-if="isAuthenticated()">
+          <img ng-src="{{currentUser.picture || currentUser.gravatar}}">
+          <p class="text-center">{{currentUser.name || currentUser.email || currentUser.id}}</p>
+          <li class="link">
+            <a href="#" class="dropddown-item">Hello</a>
+          </li>
+        </div>
+        <div class="links" ng-if="!isAuthenticated()">
+          <li class="link">
+            <a class="dropdown-item" href data-toggle="modal" data-target="#signup-modal">Signup</a>
+          </li>
+          <li class="link">
+            <a class="dropdown-item" href ng-click="openSignUp()">Login</a>
+          </li>
+        </div>
+      </div>
     </div>
   </div>
-  <aside id="menu">
-    <nav class="navigation">
-      <ul class="links">
-        
-      </ul>
-    </nav>
-  </aside>
+  <!-- Modal -->
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="SignupCtrl">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="panel">
+            <div class="panel-body">
+              <div ng-if="messages.error" role="alert" class="alert alert-danger">
+                <div ng-repeat="error in messages.error">{{error.msg}}</div>
+              </div>
+              <form ng-submit="signup()">
+                <legend>Create an account</legend>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" id="name" placeholder="Name" class="form-control" ng-model="user.name" autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password">
+                </div>
+                <div class="btn-toolbar">
+                    <button type="submit" class="btn btn-success">Create an account</button>
+                </div>
+              </form>
+              <div class="text-center hr-title"><span>or</span></div>
+              <div class="btn-toolbar text-center">
+                <button class="btn btn-facebook" ng-click="authenticate('facebook')">Sign in with Facebook</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

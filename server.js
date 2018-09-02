@@ -70,6 +70,8 @@ app.post('/login', userController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
+app.post('/auth/facebook', userController.authFacebook);
+app.get('/auth/facebook/callback', userController.authFacebookCallback);
 
 // Restaurants
 app.get('/restaurants', restaurantsController.getRestaurant);

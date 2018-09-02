@@ -9,8 +9,28 @@
         top: 8px;
         right: 35px;
         cursor: pointer;
-        i {
-            font-size: 40px;
+        a {
+            color: #333;
+            i {
+                font-size: 40px;
+            }
+            &::after {
+                border: none;
+            }
+        }
+        .dropdown-menu {
+            right: 0;
+            left: inherit;
+        }
+        .authed {
+            img {
+                width: 100px;
+                margin: auto;
+                display: block;
+            }
+            .link {
+                text-align: center;
+            }
         }
     }
     aside {
@@ -23,6 +43,14 @@
         transition: all 0.3s ease-in-out;
         &.open {
             width: 300px;
+        }
+    }
+    .links {
+
+    }
+    #modal {
+        &.show {
+            display: block;
         }
     }
 }

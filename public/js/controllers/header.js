@@ -1,9 +1,13 @@
 angular.module('MyApp')
   .controller('HeaderCtrl', function ($scope, $location, $window, $auth, $rootScope) {
 
-    $scope.openMenu = function () {
-      var menu = angular.element ( document.querySelector('#menu') );
-      menu.addClass('open');
+    $scope.$on('current-user', function (event, args) {
+      console.log('user', args);
+      $scope.currentUser = args.user;
+    });
+
+    $scope.isAuthenticated = function () {
+      return $auth.isAuthenticated();
     };
 
   });
