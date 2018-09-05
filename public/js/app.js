@@ -50,7 +50,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
     $authProvider.facebook({
       url: '/auth/facebook',
       clientId: '1090309767787653',
-      redirectUri: 'https://0964b911.ngrok.io/auth/facebook/callback'
+      redirectUri: 'http://localhost:3000/auth/facebook/callback'
     });
 
     function skipIfAuthenticated($location, $auth) {

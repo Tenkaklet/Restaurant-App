@@ -20,6 +20,12 @@
       position: relative;
       right: 24px;
       color: #999; }
+  #sidebar #location {
+    margin-left: 1em;
+    background-color: #f3f3f3; }
+    #sidebar #location:hover, #sidebar #location:active, #sidebar #location:focus {
+      color: #000;
+      box-shadow: 0 0 0 0.2rem transparent; }
 
 #header .centered {
   position: absolute;
@@ -74,12 +80,14 @@
 .modal .hr-title {
   padding: 20px 0px; }
 
-.modal .btn-toolbar {
-  margin: 0 auto;
-  width: 220px; }
-  .modal .btn-toolbar .btn-facebook {
+.modal button {
+  display: block;
+  margin: auto; }
+  .modal button.btn-facebook {
     background-color: #4968AD;
     color: #FFF; }
+  .modal button.login {
+    margin-top: 3.5%; }
 
 #content {
   margin-left: 300px; }

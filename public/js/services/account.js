@@ -15,6 +15,9 @@ angular.module('MyApp')
       },
       resetPassword: function(data) {
         return $http.post('/reset', data);
+      },
+      unlinkProvider: function (provider) {
+        return $http.get('/unlink/' + provider);
       }
     };
   });

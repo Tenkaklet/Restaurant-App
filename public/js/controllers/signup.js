@@ -20,7 +20,6 @@ angular.module('MyApp')
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function(response) {
-          console.log(response);
           var user = response.data.user
           $rootScope.$broadcast('current-user', { user });
           $rootScope.currentUser = response.data.user;
@@ -28,8 +27,6 @@ angular.module('MyApp')
           $location.path('/');
         })
         .catch(function(response) {
-          console.log(response);
-          
           if (response.error) {
             $scope.messages = {
               error: [{ msg: response.error }]

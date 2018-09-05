@@ -75,6 +75,7 @@ app.get('/auth/facebook/callback', userController.authFacebookCallback);
 
 // Restaurants
 app.get('/restaurants', restaurantsController.getRestaurant);
+app.post('/restaurants', restaurantsController.addRestaurant);
 
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
