@@ -28,7 +28,8 @@
     </div>
   </div>
   <!-- Signup Modal -->
-  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="SignupCtrl">
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    ng-controller="SignupCtrl">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,12 +59,13 @@
                   <input type="password" name="password" placeholder="Password" class="form-control" ng-model="user.password">
                 </div>
                 <div class="btn-toolbar">
-                    <button type="submit" class="btn btn-success">Create account</button>
+                  <button type="submit" class="btn btn-success">Create account</button>
                 </div>
               </form>
               <div class="text-center hr-title"><span>or</span></div>
               <div class="btn-toolbar text-center">
-                <button class="btn btn-facebook" ng-click="authenticate('facebook')" data-dismiss="modal">Sign in with Facebook</button>
+                <button class="btn btn-facebook" ng-click="authenticate('facebook')" data-dismiss="modal">Sign in with
+                  Facebook</button>
               </div>
             </div>
           </div>
@@ -73,7 +75,8 @@
   </div>
 
   <!-- Login Modal -->
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="LoginCtrl">
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    ng-controller="LoginCtrl">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -92,17 +95,20 @@
                 <legend>Log In</legend>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email" autofocus>
+                  <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email"
+                    autofocus>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password">
+                  <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                    ng-model="user.password">
                 </div>
                 <div class="form-group"><a href="/forgot"><strong>Forgot your password?</strong></a></div>
                 <button type="submit" class="btn btn-success">Log in</button>
               </form>
               <div class="btn-toolbar text-center">
-                <button class="btn btn-facebook login" ng-click="authenticate('facebook')" data-dismiss="modal">Log in with Facebook</button>
+                <button class="btn btn-facebook login" ng-click="authenticate('facebook')" data-dismiss="modal">Log in
+                  with Facebook</button>
               </div>
             </div>
           </div>
@@ -112,7 +118,8 @@
   </div>
 
   <!-- Place Modal -->
-  <div class="modal fade" id="place-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="LoginCtrl">
+  <div class="modal fade" id="place-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    ng-controller="LoginCtrl">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -130,14 +137,36 @@
               <form ng-submit="addPlace(place)">
                 <legend>Log In</legend>
                 <div class="form-group">
-                  <input type="text" name="name" id="name" placeholder="Name" class="form-control" ng-model="place.name" autofocus required>
+                  <label>Name</label>
+                  <input type="text" name="name" id="name" placeholder="Name" class="form-control" ng-model="place.name"
+                    autofocus required>
                 </div>
                 <div class="form-group">
+                  <label>Cuisine</label>
                   <select class="form-control" name="cuisine" id="cuisine" ng-model="place.cuisine" required>
                     <option value="indisk">Indisk</option>
                     <option value="orientalisk">Orientalisk</option>
                     <option value="husmanskost">Husmanskost</option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label>Is it a chain restaurant?</label>
+                  <div class="col-xs-2">
+                    <label class="switch">
+                      <input type="checkbox" ng-model="place.chain">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group address">
+                  <label>Address</label>
+                  
+                  <input type="text" name="address" placeholder="Address" class="form-control" ng-model="place.address.address"
+                     required>
+                     <input type="text" name="city" placeholder="City" class="form-control a1" ng-model="place.address.city"
+                     required>
+                  <input type="text" name="address" placeholder="Postal Code" class="form-control a2" ng-model="place.address.postCode"
+                     required>
                 </div>
                 <button type="submit" class="btn btn-success">Add Place</button>
               </form>

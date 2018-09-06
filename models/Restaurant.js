@@ -4,6 +4,7 @@ var restaurantSchema = new mongoose.Schema({
     name: {type: String, required: true},
     chain: Boolean,
     coords: Object,
+    Address: String,
     cuisine: { type: String, required: true }
 });
 

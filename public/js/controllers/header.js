@@ -14,6 +14,7 @@ angular.module('MyApp')
     };
 
     $scope.addPlace = function (place) {
+      console.log(place);
       
     };
 
