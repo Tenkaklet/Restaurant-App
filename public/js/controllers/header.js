@@ -13,4 +13,8 @@ angular.module('MyApp')
       $auth.logout();
     };
 
+    $scope.addPlace = function (place) {
+      
+    };
+
   });

@@ -10,6 +10,9 @@
           <img ng-src="{{currentUser.picture || currentUser.gravatar}}">
           <p class="text-center">{{currentUser.name || currentUser.email || currentUser.id}}</p>
           <li class="link">
+            <a class="dropdown-item" href data-toggle="modal" data-target="#place-modal">Add a place</a>
+          </li>
+          <li class="link">
             <a href class="dropddown-item nav-link" ng-click="signOut()">Sign Out</a>
           </li>
         </div>
@@ -44,15 +47,15 @@
                 <legend>Create an account</legend>
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" name="name" id="name" placeholder="Name" class="form-control" ng-model="user.name" autofocus>
+                  <input type="text" name="name" placeholder="Name" class="form-control" ng-model="user.name" autofocus>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email">
+                  <input type="email" name="email" placeholder="Email" class="form-control" ng-model="user.email">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password">
+                  <input type="password" name="password" placeholder="Password" class="form-control" ng-model="user.password">
                 </div>
                 <div class="btn-toolbar">
                     <button type="submit" class="btn btn-success">Create account</button>
@@ -101,6 +104,43 @@
               <div class="btn-toolbar text-center">
                 <button class="btn btn-facebook login" ng-click="authenticate('facebook')" data-dismiss="modal">Log in with Facebook</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Place Modal -->
+  <div class="modal fade" id="place-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="LoginCtrl">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a place</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="panel">
+            <div class="panel-body">
+              <div ng-if="messages.error" role="alert" class="alert alert-danger">
+                <div ng-repeat="error in messages.error">{{error.msg}}</div>
+              </div>
+              <form ng-submit="addPlace(place)">
+                <legend>Log In</legend>
+                <div class="form-group">
+                  <input type="text" name="name" id="name" placeholder="Name" class="form-control" ng-model="place.name" autofocus required>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" name="cuisine" id="cuisine" ng-model="place.cuisine" required>
+                    <option value="indisk">Indisk</option>
+                    <option value="orientalisk">Orientalisk</option>
+                    <option value="husmanskost">Husmanskost</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-success">Add Place</button>
+              </form>
             </div>
           </div>
         </div>

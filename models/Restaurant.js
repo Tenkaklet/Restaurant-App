@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var restaurantSchema = new mongoose.Schema({
-    name: String,
+    name: {type: String, required: true},
     chain: Boolean,
     coords: Object,
-    cuisine: String
+    cuisine: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

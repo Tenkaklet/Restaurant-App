@@ -11,8 +11,6 @@ exports.getRestaurant = function (req, res) {
 exports.addRestaurant = function (req, res) {
     Restaurant.findOne({ id: req.body }, function (err, restaurant) {
         if(err) {
-            console.log(err);
-            
             return res.status(400).send(err);
         }
         restaurant = new Restaurant({
