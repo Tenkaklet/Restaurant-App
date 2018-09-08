@@ -44,12 +44,23 @@ exports.addRestaurant = function (req, res) {
                 // if all is ok with checking... do this
                 console.log('the map ', map.features[0]);
                 console.log('right address');
+                var location = {
+                    latitude: map.features[0].center[0],
+                    longitude: map.features[0].center[1]
+                };
+                var contact = {
+                    street: req.body.address.street,
+                    city: req.body.address.city,
+                    postCode: req.body.address.postCode
+                };
+                
+                
                 restaurant = new Restaurant({
                     name: req.body.name,
                     chain: req.body.chain,
-                    coords: req.body.coords,
+                    coords: location,
                     cuisine: req.body.cuisine,
-                    address: req.body.address
+                    address: contact
                 });
                 restaurant.save(function (err) {
                     res.status(200).send(restaurant);
