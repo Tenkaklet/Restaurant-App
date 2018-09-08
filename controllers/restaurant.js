@@ -3,9 +3,6 @@ var geo = require('mapbox-geocoding');
 
 geo.setAccessToken(process.env.MAPBOX_KEY);
 
-
-
-
 exports.getRestaurant = function (req, res) {
     Restaurant.find({})
         .exec(function (err, restaurants) {
@@ -19,18 +16,8 @@ exports.addRestaurant = function (req, res) {
             return res.status(400).send(err);
         }
         var address = req.body.address.street + ',' + req.body.address.city + ',' + req.body.address.postCode;
-        console.log(address);
-        function numberWithSpaces(x) {
-            // return x.slice(3,5).split('').join(' ');
-            // return x.replace(x.slice(3,5), "max");
-            // return x.slice(2,4).split('');
-            return x.replace(/.{2}$/,' $&');
-        }
-        console.log('unedited postal code ', req.body.address.postCode);
-        
-        
         console.log('address check');
-        // console.log('the body request ', req.body.address);
+        
         geo.geocode('mapbox.places', address, function (err, map) {
             
             if (err) {
@@ -53,8 +40,7 @@ exports.addRestaurant = function (req, res) {
                     city: req.body.address.city,
                     postCode: req.body.address.postCode
                 };
-                
-                
+
                 restaurant = new Restaurant({
                     name: req.body.name,
                     chain: req.body.chain,

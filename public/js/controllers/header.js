@@ -13,17 +13,11 @@ angular.module('MyApp')
       $auth.logout();
     };
     
-
     $scope.place = {};
-
     $scope.addPlace = function () {
-      
-      
-      
       Restaurant.add($scope.place)
       .then(function () {
         $scope.place = {};
-        
         var placeModal = angular.element( document.querySelector('#place-modal') );
         Notification.success('Yay! A Restaurant has been added');
         placeModal.modal('hide');

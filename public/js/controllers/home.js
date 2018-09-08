@@ -12,8 +12,7 @@ angular.module('MyApp')
       let lat = args.userLocation.latitude;
       let lng = args.userLocation.longitude;
       let userLocation = [lng, lat];
-      console.log(userLocation);
-      
+           
       map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
