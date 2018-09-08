@@ -4,6 +4,8 @@ var geo = require('mapbox-geocoding');
 geo.setAccessToken(process.env.MAPBOX_KEY);
 
 exports.getRestaurant = function (req, res) {
+    console.log('getting restaurants');
+    
     Restaurant.find({})
         .exec(function (err, restaurants) {
             res.send(restaurants);

@@ -3,6 +3,9 @@ angular.module('MyApp')
     return {
       add: function(data) {
         return $http.post('/restaurants', data);
-      }
+      },
+      get: function () {
+        return $http.get('/restaurants');
+      },
     };
   });
