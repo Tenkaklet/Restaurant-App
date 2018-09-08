@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('HeaderCtrl', function ($scope, $location, $window, $auth, $rootScope, Account) {
+  .controller('HeaderCtrl', function ($scope, $location, $window, $auth, $rootScope, Restaurant) {
 
     $scope.$on('current-user', function (event, args) {
       $scope.currentUser = args.user;
@@ -14,7 +14,15 @@ angular.module('MyApp')
     };
 
     $scope.addPlace = function (place) {
-      console.log(place);
+      Restaurant.add(place)
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (response) {
+        $scope.messages = {
+          error: Array.isArray(response.data) ? response.data : [response.data]
+        };
+      });
       
     };
 
