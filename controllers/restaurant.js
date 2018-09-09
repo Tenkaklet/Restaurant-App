@@ -43,12 +43,19 @@ exports.addRestaurant = function (req, res) {
                     postCode: req.body.address.postCode
                 };
 
+                var user = {
+                    name: req.user.name,
+                    id: req.user._id,
+                    email: req.user.email
+                };
+
                 restaurant = new Restaurant({
                     name: req.body.name,
                     chain: req.body.chain,
                     coords: location,
                     cuisine: req.body.cuisine,
-                    address: contact
+                    address: contact,
+                    created_by: user
                 });
                 restaurant.save(function (err) {
                     res.status(200).send(restaurant);

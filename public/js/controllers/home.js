@@ -15,7 +15,7 @@ angular.module('MyApp')
         restaurants.forEach(function (i) {
           var latitude = i.coords.latitude;
           var longitude = i.coords.longitude;
-          var popup = new mapboxgl.Popup({ offset: 25 }).setText(i.name);
+          var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`${i.name} <br> <a href="restaurant/${i.name}">view</a>`);
           var el = document.createElement('div');
           el.id = 'marker';
 
