@@ -32,6 +32,9 @@
   left: 50%;
   bottom: 0; }
 
+#header .navbar {
+  color: #2196F3; }
+
 #header .nav-button {
   position: absolute;
   top: 8px;
