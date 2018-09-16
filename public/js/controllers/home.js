@@ -1,6 +1,7 @@
 angular.module('MyApp')
   .controller('HomeCtrl', function ($scope, Restaurant) {
     var map = undefined;
+    var el = undefined;
     mapboxgl.accessToken = 'pk.eyJ1IjoidGVua2FrbGV0IiwiYSI6ImNpa2xsZzhlOTAwN2t2cWxzdXpqcHpwa3EifQ.H3dNmbWFhofi9ia3AVPzFA';
     map = new mapboxgl.Map({
       container: 'map',
@@ -16,7 +17,7 @@ angular.module('MyApp')
           var latitude = i.coords.latitude;
           var longitude = i.coords.longitude;
           var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`${i.name} <br> <a href="restaurant/${i.slug}">view</a>`);
-          var el = document.createElement('div');
+          el = document.createElement('div');
           el.id = 'marker';
 
           new mapboxgl.Marker(el)
@@ -39,6 +40,26 @@ angular.module('MyApp')
         style: 'mapbox://styles/mapbox/streets-v9',
         center: userLocation,
         zoom: 14
+      });
+      Restaurant.get()
+      .then(function (res) {
+
+        var restaurants = res.data;
+        restaurants.forEach(function (i) {
+          var latitude = i.coords.latitude;
+          var longitude = i.coords.longitude;
+          var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`${i.name} <br> <a href="restaurant/${i.slug}">view</a>`);
+          el = document.createElement('div');
+          el.id = 'marker';
+
+          new mapboxgl.Marker(el)
+            .setLngLat([latitude, longitude])
+            .setPopup(popup)
+            .addTo(map);
+        });
+      })
+      .catch(function (err) {
+        console.log(err);
       });
     });
 
