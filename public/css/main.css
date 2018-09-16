@@ -27,6 +27,10 @@
       color: #000;
       box-shadow: 0 0 0 0.2rem transparent; }
 
+#header .logo a {
+  color: #333;
+  text-decoration: none; }
+
 #header .centered {
   position: absolute;
   left: 50%;

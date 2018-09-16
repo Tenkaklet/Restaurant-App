@@ -1,7 +1,7 @@
 <div ng-controller="HeaderCtrl">
   <div class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="logo">
-      <h1>Eat Me Up</h1>
+      <a href="/"><h1>Eat Me Up</h1></a>
     </div>
     <div class="nav-button dropdown">
       <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="icon ion-md-menu"></i></a>
@@ -159,13 +159,19 @@
                 </div>
                 <div class="form-group address">
                   <label>Address</label>
-                  
                   <input type="text" name="street" placeholder="Address" class="form-control" ng-model="place.address.street"
                      required>
                      <input type="text" name="city" placeholder="City" class="form-control a1" ng-model="place.address.city"
                      required>
                   <input type="text" name="address" placeholder="Postal Code" class="form-control a2" ng-model="place.address.postCode" pattern="^[A-Za-z0-9]{2,4}\s[A-Za-z0-9]{2}$"
                      required title="Please write a valid Swedish post code">
+                </div>
+                <div class="form-group">
+                  <label>Contact</label>
+                  <input type="tel" class="form-control" ng-model="place.phoneNumber" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" ng-model="place.email" placeholder="E-mail" required>
                 </div>
                 <button type="submit" class="btn btn-success">Add Place</button>
               </form>

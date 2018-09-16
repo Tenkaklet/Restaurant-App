@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var getSlug = require('speakingurl');
+
 
 var restaurantSchema = new mongoose.Schema({
     name: {type: String, required: true},
@@ -10,7 +12,14 @@ var restaurantSchema = new mongoose.Schema({
         name: String,
         id: String,
         email: String
-    }
+    },
+    phoneNumber: String,
+    email: String,
+    slug: { type: String, unique: true}
+});
+restaurantSchema.pre('save', function (next) {
+    this.slug = getSlug(this.name);
+    next();
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

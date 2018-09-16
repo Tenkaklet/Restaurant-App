@@ -11,6 +11,10 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui-notification'])
         templateUrl: 'partials/contact.html',
         controller: 'ContactCtrl'
       })
+      .when('/restaurant/:slug', {
+        templateUrl: 'partials/restaurant.html',
+        controller: 'RestaurantCtrl'
+      })
       .when('/login', {
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl',

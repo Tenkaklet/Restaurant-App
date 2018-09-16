@@ -55,7 +55,9 @@ exports.addRestaurant = function (req, res) {
                     coords: location,
                     cuisine: req.body.cuisine,
                     address: contact,
-                    created_by: user
+                    created_by: user,
+                    phoneNumber: req.body.phoneNumber,
+                    email: req.body.email
                 });
                 restaurant.save(function (err) {
                     res.status(200).send(restaurant);
