@@ -12,6 +12,16 @@ exports.getRestaurant = function (req, res) {
         });
 };
 
+exports.getBySlug = function ( req, res) {
+    console.log('getting individual restaurant');
+    Restaurant.findOne({slug: req.params.slug}, function (err, restaurant) {
+        if(err) {
+            return res.status(400).send(err);
+        }
+        res.send(restaurant);
+    })
+};
+
 exports.addRestaurant = function (req, res) {
     Restaurant.findOne({ id: req.body }, function (err, restaurant) {
         if (err) {

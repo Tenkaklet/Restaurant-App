@@ -7,5 +7,8 @@ angular.module('MyApp')
       get: function () {
         return $http.get('/api/restaurants');
       },
+      getBySlug: function (slug) {
+        return $http.get('/api/restaurants/' + slug);
+      }
     };
   });
