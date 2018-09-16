@@ -9,6 +9,9 @@ angular.module('MyApp')
       },
       getBySlug: function (slug) {
         return $http.get('/api/restaurants/' + slug);
+      },
+      search: function (name) {
+        return $http.get('/api/restaurants/' + name);
       }
     };
   });

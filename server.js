@@ -75,6 +75,7 @@ app.get('/auth/facebook/callback', userController.authFacebookCallback);
 
 // Restaurants
 app.get('/api/restaurants', restaurantsController.getRestaurant);
+app.get('/api/restaurants/:search', restaurantsController.autoCompleteRestaurant);
 app.get('/api/restaurants/:slug', restaurantsController.getBySlug);
 app.post('/api/restaurants', userController.ensureAuthenticated, restaurantsController.addRestaurant);
 

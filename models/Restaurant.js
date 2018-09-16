@@ -17,6 +17,9 @@ var restaurantSchema = new mongoose.Schema({
     email: String,
     slug: { type: String, unique: true}
 });
+
+restaurantSchema.index({'$**' : 'text'});
+
 restaurantSchema.pre('save', function (next) {
     this.slug = getSlug(this.name);
     next();

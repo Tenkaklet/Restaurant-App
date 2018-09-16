@@ -2,11 +2,13 @@
     <form class="form-inline">
         <div class="form-row align-items-center">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" ng-model="search" ng-change="find(search)">
                 <i class="icon ion-md-search"></i>
             </div>
-        </div>        
+        </div>
     </form>
     <button id="location" ng-click="getLocation()" class="btn btn-outline-dark"><i class="icon ion-md-locate"></i></button>
+    <ul class="list-group auto-field">
+        <li class="list-group-item"></li>
+    </ul>
 </aside>
-

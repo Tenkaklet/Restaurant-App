@@ -5,21 +5,34 @@ geo.setAccessToken(process.env.MAPBOX_KEY);
 
 exports.getRestaurant = function (req, res) {
     console.log('getting restaurants');
-    
+
     Restaurant.find({})
         .exec(function (err, restaurants) {
             res.send(restaurants);
         });
 };
 
-exports.getBySlug = function ( req, res) {
+exports.getBySlug = function (req, res) {
     console.log('getting individual restaurant');
-    Restaurant.findOne({slug: req.params.slug}, function (err, restaurant) {
-        if(err) {
+    Restaurant.findOne({ slug: req.params.slug }, function (err, restaurant) {
+        if (err) {
             return res.status(400).send(err);
         }
         res.send(restaurant);
     });
+};
+
+exports.autoCompleteRestaurant = function (req, res) {
+    var search = req.params.search;
+
+    Restaurant.find({ $text: { $search: search } })
+        .exec(function (err, restaurant) {
+            if (err) {
+                return res.status(400).send(err);
+            }
+            res.send(restaurant);
+        });
+
 };
 
 exports.addRestaurant = function (req, res) {
@@ -29,16 +42,16 @@ exports.addRestaurant = function (req, res) {
         }
         var address = req.body.address.street + ',' + req.body.address.city + ',' + req.body.address.postCode;
         console.log('address check');
-        
+
         geo.geocode('mapbox.places', address, function (err, map) {
-            
+
             if (err) {
                 return res.status(400).send(err);
             }
-            
-            if (map.features[0].context[0].text !=  req.body.address.postCode) {
+
+            if (map.features[0].context[0].text != req.body.address.postCode) {
                 console.log('not right address');
-                res.status(400).json({msg: 'Could not find the correct address'});
+                res.status(400).json({ msg: 'Could not find the correct address' });
             } else {
                 // if all is ok with checking... do this
                 console.log('the map ', map.features[0]);
@@ -74,7 +87,7 @@ exports.addRestaurant = function (req, res) {
                 });
             }
         });
-        
+
 
     });
 };
