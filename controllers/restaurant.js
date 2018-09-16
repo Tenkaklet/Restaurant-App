@@ -19,7 +19,7 @@ exports.getBySlug = function ( req, res) {
             return res.status(400).send(err);
         }
         res.send(restaurant);
-    })
+    });
 };
 
 exports.addRestaurant = function (req, res) {
