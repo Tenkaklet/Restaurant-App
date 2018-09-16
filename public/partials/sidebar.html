@@ -9,6 +9,10 @@
     </form>
     <button id="location" ng-click="getLocation()" class="btn btn-outline-dark"><i class="icon ion-md-locate"></i></button>
     <ul class="list-group auto-field">
-        <li class="list-group-item"></li>
+        <li class="list-group-item" ng-repeat="item in found track by $index">
+            <a ng-href="restaurant/{{item.slug}}">
+                {{item.name}}
+            </a>
+        </li>
     </ul>
 </aside>

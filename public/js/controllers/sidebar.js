@@ -12,9 +12,14 @@ angular.module('MyApp')
     };
 
     $scope.find = function (rest) {
+      if (rest === '') {
+        return false;
+      }
+      
       Restaurant.search(rest)
       .then(function (data) {
-        console.log(data);
+        console.log(data);        
+        $scope.found = data.data;
       })
       .catch(function (err) {
         console.log(err);

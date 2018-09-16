@@ -30,6 +30,9 @@
     position: absolute;
     top: 37px;
     left: 20px; }
+    #sidebar .auto-field li a {
+      color: #333;
+      text-decoration: none; }
 
 #header .logo a {
   color: #333;
