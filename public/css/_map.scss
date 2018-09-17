@@ -13,5 +13,22 @@
 }
 
 .mapboxgl-popup {
-    max-width: 200px;
+    width: 230px;
+    .mapboxgl-popup-content {
+        .mapboxgl-popup-close-button {
+            color: #FFF;
+        }
+        color: #FFF;
+        font-size: 18px;
+        height: 150px;
+        background-color: #292d41;
+        a {
+            color: #FFF;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

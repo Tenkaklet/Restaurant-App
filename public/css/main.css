@@ -152,7 +152,21 @@ input:checked + .slider:before {
   cursor: pointer; }
 
 .mapboxgl-popup {
-  max-width: 200px; }
+  width: 230px; }
+  .mapboxgl-popup .mapboxgl-popup-content {
+    color: #FFF;
+    font-size: 18px;
+    height: 150px;
+    background-color: #292d41; }
+    .mapboxgl-popup .mapboxgl-popup-content .mapboxgl-popup-close-button {
+      color: #FFF; }
+    .mapboxgl-popup .mapboxgl-popup-content a {
+      color: #FFF;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center; }
 
 .modal .hr-title {
   padding: 20px 0px; }
