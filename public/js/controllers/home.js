@@ -19,7 +19,7 @@ angular.module('MyApp')
           var longitude = i.coords.longitude;
           var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
           
-          <h4>${i.name}</h4> <br> <a href="restaurant/${i.slug}">View more</a>
+          <h4>${i.name}</h4><a href="restaurant/${i.slug}">View more</a>
           <p>Cuisine: ${i.cuisine}</p>
           `);
           el = document.createElement('div');
@@ -51,12 +51,13 @@ angular.module('MyApp')
 
         var restaurants = res.data;
         restaurants.forEach(function (i) {
-          console.log(i);
+          
           
           var latitude = i.coords.latitude;
           var longitude = i.coords.longitude;
           var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-          <h1>${i.name}<br> <a href="restaurant/${i.slug}">View more</a></h1>
+          <h4>${i.name}</h4><a href="restaurant/${i.slug}">View more</a>
+          <p>Cuisine: ${i.cuisine}</p>
           
           `);
           el = document.createElement('div');

@@ -15,15 +15,13 @@
 .mapboxgl-popup {
     width: 230px;
     .mapboxgl-popup-content {
-        .mapboxgl-popup-close-button {
-            color: #FFF;
-        }
-        color: #FFF;
+        
         font-size: 18px;
-        height: 150px;
-        background-color: #292d41;
+        // background-color: #292d41;
+        box-shadow: 2px 2px 4px #333;
         a {
-            color: #FFF;
+            text-decoration: none;
+            color: #333;
             position: absolute;
             bottom: 0;
             left: 0;
